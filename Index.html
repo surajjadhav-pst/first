@@ -1,0 +1,1152 @@
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Posit Source Technologies - We mobilize your business  </title>
+</head>
+<style>
+#h1 {
+    
+    display: none; /* Hide the element */
+  }
+
+
+#h2 {
+    
+    display: none; /* Hide the element */
+  }
+
+
+
+#h3 {
+    
+    display: none; /* Hide the element */
+  }
+
+
+#h4 {
+    
+    display: none; /* Hide the element */
+  }
+
+
+#h5 {
+    
+    display: none; /* Hide the element */
+  }
+
+body {background-color:white;}
+</style>
+<body >
+
+
+<!--script for hide-->
+<script>
+
+$(function(){
+        var navMain = $("#navbar3");
+        navMain.on("click", "a", null, function () {
+            navMain.collapse('hide');
+        });
+    });
+
+
+// Wait for DOM to load and be ready
+$(document).ready(function(){
+  
+  // Click event handler
+  $("#s1").click(function() {
+  
+    // Show the element
+    $( "#h1" ).show();
+    $( "#h3").hide();
+    $( "#h4").hide();
+    $( "#h5").hide();
+    $( "#h2" ).hide();
+    
+  });
+  
+});
+
+
+$(document).ready(function(){
+  
+  // Click event handler
+  $("#s2").click(function() {
+  
+    // Show the element
+    $( "#h2" ).show();
+    $( "#h3").hide();
+    $( "#h4").hide();
+    $( "#h5").hide();
+    $( "#h1").hide();
+   
+    
+  });
+  
+});
+
+
+$(document).ready(function(){
+  
+  // Click event handler
+  $("#s3").click(function() {
+  
+    // Show the element
+    $( "#h3" ).show();
+
+    $( "#h2").hide();
+    $( "#h4").hide();
+    $( "#h5").hide();
+    $( "#h1").hide();
+    
+  });
+  
+});
+
+
+
+$(document).ready(function(){
+  
+  // Click event handler
+  $("#s4").click(function() {
+  
+    // Show the element
+    $( "#h4" ).show();
+    
+
+    $( "#h2").hide();
+    $( "#h3").hide();
+    $( "#h5").hide();
+    $( "#h1").hide();
+    
+       
+    
+  });
+  
+});
+
+
+
+$(document).ready(function(){
+  
+  // Click event handler
+  $("#s5").click(function() {
+  
+    // Show the element
+    $( "#h5" ).show();
+    $( "#h2").hide();
+    $( "#h3").hide();
+    $( "#h4").hide();
+    $( "#h1").hide();
+    
+    
+  });
+  
+});
+</script>
+
+
+
+<script><!--   -->
+$(document).ready(function(){
+
+    loadGallery(true, 'a.thumbnail');
+
+    //This function disables buttons when needed
+    function disableButtons(counter_max, counter_current){
+        $('#show-previous-image, #show-next-image').show();
+        if(counter_max == counter_current){
+            $('#show-next-image').hide();
+        } else if (counter_current == 1){
+            $('#show-previous-image').hide();
+        }
+    }
+
+    /**
+     *
+     * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+     * @param setClickAttr  Sets the attribute for the click handler.
+     */
+
+    function loadGallery(setIDs, setClickAttr){
+        var current_image,
+            selector,
+            counter = 0;
+
+        $('#show-next-image, #show-previous-image').click(function(){
+            if($(this).attr('id') == 'show-previous-image'){
+                current_image--;
+            } else {
+                current_image++;
+            }
+
+            selector = $('[data-image-id="' + current_image + '"]');
+            updateGallery(selector);
+        });
+
+        function updateGallery(selector) {
+            var $sel = selector;
+            current_image = $sel.data('image-id');
+            $('#image-gallery-caption').text($sel.data('caption'));
+            $('#image-gallery-title').text($sel.data('title'));
+            $('#image-gallery-image').attr('src', $sel.data('image'));
+            disableButtons(counter, $sel.data('image-id'));
+        }
+
+        if(setIDs == true){
+            $('[data-image-id]').each(function(){
+                counter++;
+                $(this).attr('data-image-id',counter);
+            });
+        }
+        $(setClickAttr).on('click',function(){
+            updateGallery($(this));
+        });
+    }
+});
+
+</script>
+
+  <style>
+  /**********************************
+Responsive navbar-brand image CSS
+- Remove navbar-brand padding for firefox bug workaround
+- add 100% height and width auto ... similar to how bootstrap img-responsive class works
+***********************************/
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 1px;
+  width: auto;
+}
+
+
+/* EXAMPLE 3
+
+line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
+
+.example3 .navbar-brand {
+  height: 80px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.example3 .nav >li >a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.example3 .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+
+
+
+/* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+.navbar-alignit .navbar-header {
+	  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  height: 50px;
+}
+.navbar-alignit .navbar-brand {
+	top: 50%;
+	display: block;
+	position: relative;
+	height: auto;
+	transform: translate(0,-50%);
+	margin-right: 15px;
+  margin-left: 15px;
+}
+
+
+
+
+
+body {
+  font-family: "Lato";
+}
+</style>
+<div class="container-fluid" >
+
+
+
+
+
+  <div class="example3">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://www.positsource.com/"><img src="logo.png" alt="Dispute Bills" style="
+    margin-top: 5%;
+">
+          </a>
+        </div>
+        <div id="navbar3" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" style="font-size: 150%;">Home</a></li>
+
+            <li><a id="s1" href="#about" style="font-size: 150%;">About Us</a></li>
+            <li><a id="s2" href="#service" style="font-size: 150%;">Services</a></li>
+            <li><a id="s3" href="#Clients" style="font-size: 150%;">Clients</a></li>
+            <li><a id="s4"href="#Careers" style="font-size: 150%;">Careers</a></li>
+            <li><a id="s5"href="#contact" style="font-size: 150%;">Contact Us</a></li>
+
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+     
+      <!--/.container-fluid -->
+    </nav>
+
+
+
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading"></div>
+
+
+<br><br><br>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active"><center>
+      <img src="ios.png" alt="iOS" class="img-responsive"></center>
+
+    </div>
+
+    <div class="item"><center>
+      <img src="android.png" alt="android" class="img-responsive"></center>
+
+    </div>
+
+    <div class="item"><center>
+      <img src="webx.jpg" alt="New York" class="img-responsive"></center>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+</div> <!-- panel body-->
+
+
+
+
+  </div>
+
+
+
+<style>
+
+
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,900);
+body {
+
+
+
+
+      background-color: #f44336;
+                transition: background-color 300ms;
+                font-family: 'Roboto', sans-serif;
+                background:url('http://40.media.tumblr.com/6e138b33e7e2fadf3ff47d02fd28d74a/tumblr_nscw8gfVlY1uc3lv1o1_1280.jpg');
+                background-repeat:none;
+                background-size:cover;
+}
+
+
+.card {
+    background:#FFF;
+    display: block;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    border:1px solid #AAA;
+    border-bottom:3px solid #BBB;
+    padding:0px;
+    margin-top:5em;
+    overflow:hidden;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-body{
+ margin:1em;
+}
+
+.card-header{
+    width:100%;
+	color:#2196F3;
+    border-bottom:3px solid #BBB;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    padding:0px;
+    margin-top:0px;
+    overflow:hidden;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+.card-header-blue{
+    background-color:#2196F3;
+    color:#FFFFFF;
+    border-bottom:3px solid #BBB;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    padding:0px;
+    margin-top:0px;
+    overflow:hidden;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-header-red{
+    background-color:#F44336;
+    color:#FFFFFF;
+    border-bottom:3px solid #BBB;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    padding:0px;
+    margin-top:0px;
+    overflow:hidden;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-header-grey{
+    background-color:#2196F3;
+    color:#FFFFFF;
+    border-bottom:3px solid #BBB;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    padding:0px;
+    margin-top:0px;
+    overflow:hidden;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-header-orange{
+    background-color:#424242;
+    color:#FFFFFF;
+    border-bottom:3px solid #BBB;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    padding:0px;
+    margin-top:0px;
+    overflow:hidden;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-header-pink{
+	background-color:#E91E63;
+	color:#FFFFFF;
+    border-bottom:3px solid #BBB;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: 'Roboto', sans-serif;
+    padding:0px;
+    margin-top:0px;
+    overflow:hidden;
+    -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-heading {
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 24px;
+    margin-left:1em;
+    border-bottom: 1px #2196F3;
+    color:#fff;
+
+}
+.card-footer{
+ border-top:1px solid #000;
+
+}
+
+
+
+.card-action-pink{
+    color:#E91E63;
+
+}
+.card-action-red{
+    color:#F44336;
+
+}
+.card-action-grey{
+    color:#424242;
+
+}
+.card-action-pink{
+    color:#E91E63;
+
+}
+.card-action-orange{
+    color:#E65100;
+
+}
+    	.img-fill  {
+				max-height: 100%;
+				max-width: 100% display :inline-block;
+				margin: 1em;
+			}
+
+                .card-image {
+				overflow: hidden;
+				position: relative;
+				margin-bottom: 1em;
+			}
+			.card-image:first-child {
+				border-radius: 2px 2px 0 0;
+			}
+			.card-image:last-child {
+				border-radius: 0 0 2px 2px;
+			}
+			.card-image img {
+				display: block;
+				height: auto;
+				width: 100%;
+			}
+
+			.card-image-text {
+				background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
+				background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+				color: #ffffff;
+				font-size: 20px;
+				line-height: 28px;
+				margin: 0;
+				padding: 12px 16px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+			}
+
+
+</style>
+
+
+<div class="container-fluid">
+<div class="jumbotron">
+           <h3 class="blue" style="color:#2196F3;">Posit Source Technologies - We mobilize your business</h3>
+           <i><h4 class="blue">Posit Source is a leading provider of mobility and social media solutions. Our solutions push the boundaries of popular smartphones (iPhone, Android) and new media (Facebook, Twitter) to explore novel ways of interacting with users and create unique value propositions for our customers. Our customers are start-ups that disrupt the markets dominated by big enterprises, with innovative new ways of working and by being nimble.</h4>
+</i>
+       </div>
+
+  <div class="row">
+              <div class="col-md-4">
+          		<div class="card" style="
+    margin-top: 0%;
+">
+                      <div class="card-content">
+                      	<div class="card-header-blue">
+                             <h1 class="card-heading">Agility and Speed</h1>
+                         	</div>
+                         	<div class="card-body">
+                       	  <p class="card-p">
+                            We understand the desperate rush to do your MVP and rush to market.
+                          </p>
+                          <p> We are the most agile company here who could speed up your development work and get you the first mover advantage
+
+                          </p><br><br>
+                       	</div>
+
+
+                      </div>
+                  </div>
+             	</div>
+
+
+
+
+
+
+
+
+              <div class="col-md-4">
+        	<div class="card" style="
+    margin-top: 0%;
+">
+                    <div class="card-content">
+                    	<div class="card-header-orange">
+                           <h1 class="card-heading">Bleeding Edge Technologies</h1>
+                       	</div>
+                       	<div class="card-body">
+                     	  <p class="card-p">If we mention all the techie stuff we like, you will either have a nerdgasm or fall asleep. In short, Yes to Open Source technologies; </p><p>Yes to HTML5, JavaScript, JSON, CSS, SASS, JQuery Mobile, NoSQL, MongoDB, node.js, Ruby, PHP/Python/Perl, scalable architecture, cloud.</p>
+
+                        </p> <br>
+                     	</div>
+
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-4">
+        	<div class="card" style="
+    margin-top: 0%;
+">
+                    <div class="card-content">
+                    	<div class="card-header-grey">
+                           <h1 class="card-heading">Quality & Realiability</h1>
+                       	</div>
+                       	<div class="card-body">
+                     	  <p class="card-p">
+We started this company to take the headache out of outsourcing.</p><p> Needless to say that our deliverables are top quality and our clients can rely on us for their most critical needs.
+
+</p><br><br>
+                     	</div>
+
+                    </div>
+                </div>
+        </div>
+      </div><br><!--end of Home-->
+
+
+      <!--***********************start of About US page*********************************-->
+
+      <div id="about" class="container-fluid">
+
+<div id="h1">
+<br><br><br><br>
+</div>
+
+        <!-- About -->
+
+           <section id="about">
+             
+               <div class="row">
+                 <div class="col-lg-12 text-center">
+                   <h1 class="section-heading text-uppercase">About Us</h1>
+
+                 </div>
+               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+               <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+                 <!-- Indicators -->
+
+
+                 <!-- Wrapper for slides -->
+                 <div class="carousel-inner">
+                   <div class="item active"><center>
+                     <img src="rsz_s.jpg" alt="iOS" class="img-responsive img-circle">
+               <h4>Satish Shinde, Founder & CEO</h4></center>
+                   </div>
+
+                   <div class="item"><center>
+                     <img src="rsz_sn.jpg" alt="android" class="img-responsive img-circle">
+               <h4>Sonal Nimbalkar, CFO</h4> </center>
+               </div>
+
+                   <div class="item"><center>
+                     <img src="n.jpg" alt="New York" class="img-responsive img-circle">
+                     <h4>Neeraj Upreti, Founder & CTO</h4>
+                   </center>
+                   </div>
+                 </div>
+
+                 <!-- Left and right controls -->
+                 <a class="left carousel-control" href="#myCarousel1" data-slide="prev">
+                   <span class="glyphicon glyphicon-chevron-left"></span>
+                   <span class="sr-only">Previous</span>
+                 </a>
+                 <a class="right carousel-control" href="#myCarousel1" data-slide="next">
+                   <span class="glyphicon glyphicon-chevron-right"></span>
+                   <span class="sr-only">Next</span>
+                 </a>
+               </div>
+
+
+
+
+
+
+
+
+
+               <div class="row">
+                 <div class="col-lg-12 text-center">
+
+                   <h3 class="blue" style="color:#2196F3;">We can make you nimble</h3>
+                 </div>
+               </div>
+
+
+
+
+
+
+
+
+               <div class="jumbotron">
+                        <i><h4 class="blue">Posit Source Technologies is a global technology start-up that specializes in delivering real business impact through the use of technology. While technology companies are dime a dozen, the ones that combine deep business knowledge and the best in technology are scarce.</h4>
+                          </i>
+                          <i><h4 class="blue">Posit Source is founded by the best minds from the industry with vast experience across domains, functions and geographies. Our experience ranges from professional services firms to SMEs to corporate environment to start-ups. We combine our global experience and industry insights to help you deliver the best possible business results that technology can deliver. With us you can expect that</h4>
+                          </i>
+                          <p>
+              <i>              <ul class="custom-bullet" style="">
+  <li>Client satisfaction is a number one priority. Nothing happens at Posit Source if it does not add to client satisfaction.</li>
+  <li>Cost savings - we deliver at 50% greater value than local market equivalents.</li>
+  <li>World class delivery engine - If a firm is measured by the outcomes, we will undoubtedly top the list. We are up for any challenge.</li>
+</ul>
+</i>                          </p>
+              </div>
+
+             
+           </section>
+
+
+
+
+<style>
+
+.custom-bullet li {
+ display: block;
+ font-size: 17px;
+}
+body
+{
+  background:url('https://s-media-cache-ak0.pinimg.com/736x/f4/ac/6a/f4ac6aac3afb587f6cae04155656fca3.jpg');
+}
+.custom-bullet li:before
+{
+ /*Using a Bootstrap glyphicon as the bullet point*/
+ content: "\e080";
+ font-family: 'Glyphicons Halflings';
+ font-size: 13px;
+ float: left;
+ margin-top: 4px;
+ margin-left: -17px;
+ color: #2196F3;
+}
+
+</style>
+
+
+
+
+
+
+      </div><!--end of about container-->
+      <!--***********************End of About US page*********************************-->
+
+
+
+
+
+      <!--***********************start of Service  page*********************************-->
+
+      <div id="service" class="container-fluid">
+
+        <div id="h2">
+         <br><br><br><br>
+         </div>
+
+
+    <section id="servicesec">
+     
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1 class="section-heading text-uppercase">Service</h1>
+            <h3 class="blue" style="color:#2196F3;">Mobile Application Development & Enterprise Services</h3>
+          </div>
+        </div>
+
+        <div class="jumbotron">
+                 <i><h4 class="blue">Mobile Application Development & Enterprise Services with iOS, iPhone, iPad, and Android
+
+</h4>
+                   </i>
+                   <i><h4 class="blue">We are not just another outsourcing firm or offshore development company. We take pride in our entrepreneurial approach to any work we do. You will notice the agility and insights we bring to the table. Give us a try, we provide following services as of now and the list keeps growing.
+
+</h4>
+                   </i>
+                   <p>
+       <i>              <ul class="custom-bullet" style="">
+       <li>Business software and solutions</li>
+       <li>Productivity apps, utilities and solutions</li>
+       <li>Mobile client software</li>
+       <li>Games and multimedia apps</li>
+       <li>Internet apps</li>
+       <li>Porting web applications to mobile platform</li>
+
+       </ul>
+       </i>                          </p>
+       </div>
+
+ </section>
+</div> <!-- service container -->
+
+        <!--***********************End of Service page*********************************-->
+
+
+
+
+
+        <!--***********************Start of Clients page*********************************-->
+
+      <div id="Clients" class="container-fluid">
+<div id="h3">
+
+        <br><br><br><br>
+</div>
+
+
+        <section id="Clientssec">
+          
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h1 class="section-heading text-uppercase">Our Clients</h1>
+              </div>
+            </div>
+      </div>
+      <div class="jumbotron">
+               <i><h4 class="blue">Here is a partial list of clients that we work with. We are also working with many clients in  (stealth) mode in San Francisco bay area and London.</h4></i>
+
+     </div>
+
+     <div>
+
+
+
+       <div class="row">
+
+     <div class="col-lg-12">
+
+
+
+             <div class="col-lg-3 thumb">
+             <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="1.png" data-target="#image-gallery">
+                 <img class="img-responsive" src="1.png" >
+             </a>
+         </div>
+
+
+
+         <div class="col-lg-3  thumb">
+         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="2.png" data-target="#image-gallery">
+             <img class="img-responsive" src="2.png" >
+         </a>
+         </div>
+
+         <div class="col-lg-3  thumb">
+         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="3.png" data-target="#image-gallery">
+             <img class="img-responsive" src="3.png" >
+         </a>
+         </div>
+
+         <div class="col-lg-3  thumb">
+
+         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="4.png" data-target="#image-gallery">
+             <img class="img-responsive" src="4.png" >
+         </a>
+         </div>
+
+
+     </div>
+   </div>
+
+   <div class="row">
+
+ <div class="col-lg-12">
+
+
+         <div class="col-lg-3  thumb">
+         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="5.png" data-target="#image-gallery">
+             <img class="img-responsive " src="5.png" >
+         </a>
+         </div>
+
+
+         <div class="col-lg-3  thumb">
+         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="6.png" data-target="#image-gallery">
+             <img class="img-responsive" src="6.png" >
+         </a>
+         </div>
+
+
+         <div class="col-lg-3  thumb">
+         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="7.png" data-target="#image-gallery">
+             <img class="img-responsive" src="7.png" >
+         </a>
+         </div>
+
+         <div class="col-lg-3  thumb">
+         <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="" data-caption="" data-image="8.png" data-target="#image-gallery">
+             <img class="img-responsive" src="8.png">
+         </a>
+         </div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+ <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                 <h4 class="modal-title" id="image-gallery-title"></h4>
+             </div>
+             <div class="modal-body">
+                 <img id="image-gallery-image" class="img-responsive" src="">
+             </div>
+             <div class="modal-footer">
+
+                 <div class="col-md-2">
+                     <button type="button" class="btn btn-primary" id="show-previous-image">Previous</button>
+                 </div>
+
+                 <div class="col-md-8 text-justify" id="image-gallery-caption">
+                     This text will be overwritten by jQuery
+                 </div>
+
+                 <div class="col-md-2">
+                     <button type="button" id="show-next-image" class="btn btn-default">Next</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+
+
+
+
+
+
+
+
+     <!--end tag clients-->
+
+</section>
+</div>
+
+
+
+
+        <!--***********************End of Clients page*********************************-->
+        <!--***********************Start of Careers page*********************************-->
+
+      <div id="Careers" class="container-fluid">
+
+          <div id="h4">
+        <br><br><br><br>
+         </div>
+
+        <section id="Careerssec">
+          
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h1 class="section-heading text-uppercase">Careers</h1>
+              </div>
+            </div>
+    
+
+      <div class="jumbotron">
+               <i><h4 class="blue">Posit Source Technologies is a system based on ability, where we will leverage your talent and attitude to address the business and technical requirements of our customers. In return, we promise to provide you with an environment where you can grow, as an individual and as a professional.</h4></i>
+
+     </div>
+
+
+
+
+                   <div class="col-md-6">
+             	<div class="card" style="margin-top: 0%;">
+                         <div class="card-content">
+                         	<div class="card-header-orange">
+                                <h1 class="card-heading">
+Senior Software Engineer, Android (SSE)</h1>
+                            	</div>
+                            	<div class="card-body">
+                          	  <p class="card-p">Translate business requirement to functional requirements..
+Author software design specifications..
+Work closely with other software engineers / onsite team to design, develop and integrate features to existing product..
+Perform unit and integration testing..</p>
+
+                             </p> <br>
+                          	</div>
+
+                         </div>
+                     </div>
+             </div>
+
+
+             <div class="col-md-6">
+             <div class="card" style="margin-top: 0%;">
+                   <div class="card-content">
+                    <div class="card-header-orange">
+                          <h1 class="card-heading">Senior Software Engineer, iOS (SSE) </h1>
+                        </div>
+                        <div class="card-body">
+                        <p class="card-p">Translate business requirement to functional requirements..
+             Author software design specifications..
+             Work closely with other software engineers / onsite team to design, develop and integrate features to existing product..
+             Perform unit and integration testing..
+             Investigate and prototype using new technologies..</p>
+
+                       </p> <br>
+                      </div>
+
+                   </div>
+               </div>
+             </div>
+
+
+
+
+                          <div class="col-md-6">
+                                  <div class="card" style="margin-top: 2%;">
+                                                                <div class="card-content">
+                                                                  <div class="card-header-orange">
+                                                                       <h1 class="card-heading">Software Engineer, iOS (SE)</h1>
+                                                                    </div>
+                                                                    <div class="card-body">
+                                                                    <p class="card-p">Work closely with other software engineers / onsite team to design, develop and integrate features to existing product..
+                  Perform unit and integration testing..</p>
+
+                                                                    </p> <br>
+                                                                  </div>
+
+                                                                </div>
+                                                            </div>
+                                                    </div>
+
+
+
+
+
+                                                                                    <div class="col-md-6">
+                                                                              	<div class="card" style="
+                                                                          margin-top: 2%;
+                                                                      ">
+                                                                                          <div class="card-content">
+                                                                                          	<div class="card-header-orange">
+                                                                                                 <h1 class="card-heading">
+                                                    Software Engineer, Android (SE)</h1>
+                                                                                             	</div>
+                                                                                             	<div class="card-body">
+                                                                                           	  <p class="card-p">Work closely with other software engineers / onsite team to design, develop and integrate features to existing product..
+                                                    Perform unit and integration testing..
+                                                    </p>
+
+                                                                                              </p> <br>
+                                                                                           	</div>
+
+                                                                                          </div>
+                                                                                      </div>
+                                                                              </div>
+
+
+
+
+
+
+</section>
+</div>
+
+
+
+
+     <!--***********************End of Careers page*********************************-->
+
+
+
+             <!--***********************Start of Contact Us page*********************************-->
+
+           <div id="contact" class="container-fluid">
+
+             
+                  <div id="h5">
+                 <br><br><br><br>
+                  </div>
+
+             <section id="contactsec">
+               
+                 <div class="row">
+
+                   <div class="col-sm-12 text-center">
+                     <h1 class="section-heading text-uppercase">Contact Us</h1>
+                   
+
+                <br><br>
+
+      <center><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.478910050043!2d73.76918254997945!3d18.552435587328503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfebabc5e897%3A0x4fea54aa29ab0cd6!2sPosit+Source+Technologies+Pvt.+Ltd.!5e0!3m2!1sen!2sin!4v1515765146266" width="300" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></center>
+
+</div>
+
+                 </div>
+</section>
+
+           </div>
+
+
+
+</div>
+
+ <br>
+
+         <div class="panel-footer"><center>© Copyright 2018 Posit Source Technologies Pvt. Ltd.</center></div>
+</div>
+
+
+</div>
+</body>
+</html>
